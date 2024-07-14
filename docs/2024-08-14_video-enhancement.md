@@ -62,7 +62,7 @@ pip freeze > requirements.txt
 
 gitty bits...
 
-Food, couch, hopefully something like Hawaii 5-0 on Rai 4 (lingua originale).
+Food, couch, Hawaii 5-0 (on Rai 4 lingua originale).
 
 
 
