@@ -52,6 +52,27 @@ The result, 320x240px *insert screenshots* is way less pixelated. I *think* the 
 
 https://github.com/MSFTserver/colab-convert
 
+Last things for tonight (23:30, 27.6°C in the office, Spain 2, England 1)
+
+```
+
+pip freeze > requirements.txt
+
+```
+
+gitty bits...
+
+Food, couch, hopefully something like Hawaii 5-0 on Rai 4 (lingua originale).
+
+
+
+
+
+
+
+
+
+
 
 
 
