@@ -64,6 +64,85 @@ gitty bits...
 
 Food, couch, Hawaii 5-0 (on Rai 4 lingua originale).
 
+---
+
+*...continued 40 hours later...*
+
+Ok, so this upscaling will take a lot of time on my CPU-only office machine, and I expect the interpolation will take at least as long, ie. days in total.
+
+But before planting things on Colab or wherever, it would make sense to figure out the next bit locally too. Just do a few seconds to sanity-check.
+
+I have noted down Linux commands to maximise performance on a machine like this (with the help of Claude), but I won't bother right now unless I obviously need to.
+
+Hmm. I didn't note the frame rate...
+
+Ok, the original vid is 40 mins = 2400s. I got 19257 frames. 19257/2400 ~= 8 fps? For a very old camera that does sound ballpark.
+
+Taking 5s for each frame to upscale.
+
+How long would 10s of the original take? 10x8x5 = 400s = ~7 mins. Yeah.
+
+*(I am outrageously bad at basic arithmetic, need to spell things out to stand a chance of getting sums right)*
+
+Er, 80 frames..?
+
+Here we go then, in `upscale-many.py`,
+```
+
+for i in range(1, 80):
+
+```
+
+*(also rubbish memory, `history| grep python`)*
+
+```
+
+python src/upscale-many.py
+
+```
+
+```
+
+Processed 79 frames (7.90%) in 708.31 seconds
+
+```
+
+*Heh, out by one error. You should see my C code.*
+
+I'd better test by gluing the new frames into a vid.
+
+Ask Claude.
+
+I'd better start by lifting the following out of `extract-frames.py`, note her in case I need it later:
+
+```
+
+// use absolute paths
+
+video_path = os.path.abspath('data/before/orig-vid-only.mp4')
+output_folder = os.path.abspath('data/frames')
+
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+
+    ( ... )
+
+```
+
+#### Reglue vid prompt
+
+>> I have used the code below to extract frames from a video file. Can you please generate corresponding code that will join together images 1-80 back into a video in a non-lossy format and save it in the 'data/output' directory.
+*[source of src/extract-frames.py]*
+
+Yay! First pass it gave me the result at 25 fps. Claude told me the parameter.
+
+I'm not entirely convinced of the other encoding parameters Claude gave me, but they will do for now.
+
+
+
+
+
+
 
 
 

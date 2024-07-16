@@ -5,31 +5,39 @@ import os
 input_folder = 'data/upscaled'
 
 # Output video path
-output_path = 'data/output/upscaled-output.mkv'
+output_path = 'data/output/upscaled-snippet.avi'
+
+# Ensure the output directory exists
+os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
 
-def create_video_from_frames(input_folder, output_path, start_number=1, end_number=80, fps=8):
+def create_video_from_frames(input_folder, output_path, start_number=1, num_frames=400, fps=8):
     # Construct the input pattern for the frames
     input_pattern = f"{input_folder}/frame_%04d.png"
 
-    # Create the ffmpeg input with the frame range
-    input_stream = ffmpeg.input(input_pattern, start_number=start_number)
+    # Create the ffmpeg input with the frame range and explicit input frame rate
+    input_stream = (
+        ffmpeg
+        .input(input_pattern, start_number=start_number, framerate=fps)
+        .filter('fps', fps=fps)
+    )
 
-    # Set up the output with lossless encoding and specified frame rate
-    output = ffmpeg.output(input_stream, output_path,
-                           vcodec='ffv1',  # FFV1 is a lossless video codec
-                           pix_fmt='yuv444p10le',  # High quality pixel format
-                           level=3,  # Highest compression level for FFV1
-                           g=1,  # Every frame is an intra frame
-                           vframes=end_number-start_number+1,  # Number of frames to process
-                           r=fps  # Set the frame rate
-                           )
+    # Set up the output with lossless encoding
+    output = ffmpeg.output(
+        input_stream,
+        output_path,
+        vcodec='huffyuv',  # HuffYUV is a lossless codec compatible with AVI
+        pix_fmt='rgb24',   # Use RGB color space for best quality
+        acodec='none',     # No audio
+        r=fps,             # Ensure output frame rate matches input
+        vframes=num_frames  # Limit the number of frames in the output
+    )
 
     # Run the ffmpeg command
     ffmpeg.run(output, overwrite_output=True)
 
 
 # Call the function to create the video
-create_video_from_frames(input_folder, output_path, fps=8)
+create_video_from_frames(input_folder, output_path, num_frames=400, fps=8)
 
 print(f"Video created and saved to {output_path}")

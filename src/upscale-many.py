@@ -22,7 +22,7 @@ print('Here we go...')
 
 start_time = time()
 
-for i in range(1, 80):
+for i in range(1, 401):
     print(f'Processing frame {i}')
     input_image = os.path.join(input_folder, f'frame_{i:04d}.png')
     output_image = os.path.join(output_folder, f'frame_{i:04d}.png')
