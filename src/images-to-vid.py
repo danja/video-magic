@@ -2,10 +2,10 @@ import ffmpeg
 import os
 
 # Input frames directory
-input_folder = 'data/upscaled'
+input_folder = 'data/interpolated'
 
 # Output video path
-output_path = 'data/output/upscaled-snippet.avi'
+output_path = 'data/output/interpolated-snippet.avi'
 
 # Ensure the output directory exists
 os.makedirs(os.path.dirname(output_path), exist_ok=True)

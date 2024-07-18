@@ -1,5 +1,7 @@
 ## Plan
 
+_you can make a silk purse out of a sow's ear if you have a model that has spent it's whole life comparing them_
+
 1. extract frames from original vid
 2. Upscale/improve individual frames
 3. Interpolate new frames into better video
@@ -134,11 +136,59 @@ output_folder = os.path.abspath('data/frames')
 >> I have used the code below to extract frames from a video file. Can you please generate corresponding code that will join together images 1-80 back into a video in a non-lossy format and save it in the 'data/output' directory.
 *[source of src/extract-frames.py]*
 
-Yay! First pass it gave me the result at 25 fps. Claude told me the parameter.
+Yay! First pass it gave me the result at 25 fps. Claude told me the parameter to change it back to the original 8.
+
+Runs very fast.
 
 I'm not entirely convinced of the other encoding parameters Claude gave me, but they will do for now.
 
+Time for dogwalk #2. I might as well run the upscale script a bit longer while we are out.
 
+```
+
+for i in range(1, 401):
+
+```
+
+I've not done the sums. Just feels right.
+
+I remixed to vid, that worked.
+
+The result is very Mr.Blobby, but no worse. Is enough time to get an idea if it's doing any good.
+
+Hmm, I'm confused. I ran `images-vid.py` on the original frames, that looks a lot longer in time.
+
+Yeah, the original comes out at 50s, the upscaled 16s. Repeat.
+
+Ok Claude. Thank you Claude, you remembered markdown format :
+
+# Explanation of Video Length Discrepancy
+
+When creating a video from a series of images, the output video length can vary based on several factors:
+
+1. **Frame Rate**: If you're not explicitly setting a frame rate, ffmpeg might be inferring one based on the input. Smaller images might be interpreted as having a lower frame rate, resulting in a longer video.
+
+2. **Codec Behavior**: Some codecs might handle different image sizes differently, potentially affecting the output duration.
+
+3. **Container Format**: The container format (like .avi) can influence how the video is packaged and interpreted.
+
+To address these issues and ensure consistent output regardless of image size, while maintaining a lossless quality and using the .avi format, we need to:
+
+1. Explicitly set the input frame rate
+2. Use a lossless codec compatible with .avi
+3. Ensure the output frame rate matches the input frame rate
+
+Here's an updated script that should produce consistent results:
+
+...
+
+Ok, after a bit of tweaking, and getting confused about which code file I was looking at (at 1:25 on an empty stomach), it is now behaving. Really can't tell if things are any better.
+
+But you definitely can make a silk purse out of a sow's ear if you have a model trained on lots of silk purses.
+
+Ok, so far so good.
+
+I now eat.
 
 
 
@@ -307,3 +357,118 @@ sudo -E flatpak enter 177213 sh
 cp /root/Videos/output-video.avi_640x480.mp4 /home/danny/flatpak-exports/output-video.avi_640x480.mp4
 exit
 ```
+
+### Venv broke after Ubuntu update manic -> noble
+
+```bash
+sudo apt update
+sudo apt upgrade
+
+danny@danny-desktop:~$ python --version
+Python 3.12.3
+
+danny@danny-desktop:~$ pip --version
+pip 24.1.2 from /home/danny/.local/lib/python3.12/site-packages/pip (python 3.12)
+
+danny@danny-desktop:~$ sudo python -m pip install --upgrade pip
+error: externally-managed-environment
+
+sudo apt install python3-pip
+...
+python3-pip is already the newest version (24.0+dfsg-1ubuntu1).
+
+mv /home/danny/foaf-archive-support/video-magic /home/danny/foaf-archive-support/video-magic_
+
+python3 -m venv /home/danny/foaf-archive-support/video-magic
+
+cd /home/danny/foaf-archive-support/video-magic
+source bin/activate
+
+ ls
+bin  include  lib  lib64  pyvenv.cfg
+```
+
+Python had been updated in the upgrade so I copied everything except those new env dirs & file from the old version into the new.
+Then:
+
+```
+pip install -r requirements.txt
+...
+ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, please update the hashes. Otherwise, examine the package contents carefully; someone may have tampered with them.
+```
+
+Oops.
+
+Claude suggests :
+
+```
+pip install hashin
+hashin -r requirements.txt packagename==version
+```
+
+Looks promising. A little reading later-
+
+```
+cp requirements.txt requirements_bad-hash.txt
+hashin -v --update-all -r requirements.txt
+...
+Invalid version: '0.5.13-hg'
+```
+
+That ran correctly after I'd removed these from `requirements.txt` :
+
+```
+sympy==1.13.0
+RealESRGAN @ git+https://github.com/sberbank-ai/Real-ESRGAN.git@362a0316878f41dbdfbb23657b450c3353de5acf
+```
+
+So I'll do those manually :
+
+```
+pip install sympy
+pip install git+https://github.com/sberbank-ai/Real-ESRGAN.git
+```
+
+It failed on hashes again with ESRGAN, which was pulling in loads of dependencies.
+
+The `requirements.txt` at https://github.com/ai-forever/Real-ESRGAN is pretty short:
+
+```
+numpy
+opencv-python
+Pillow
+torch>=1.7
+torchvision>=0.8.0
+tqdm
+huggingface-hub
+```
+
+So I'll install these manually.
+
+```
+pip install torch>=1.7
+...
+ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE.
+```
+
+```
+torch==2.3.1
+torchvision==0.18.1
+
+hashin -v -r requirements.txt torch==2.3.1
+```
+
+Same error. But there is such a big dependency tree I didn't fancy doing it all manually. So we made a helper script to run pip on
+
+python src/install-requirements.py pytorch-requirements.txt
+
+```
+pip cache purge
+Files removed: 602
+...
+pip install torch>=1.7
+```
+
+That _appears_ to have run without incident (note to self: use `pip -v` in future).
+
+pip freeze > requirements.txt
