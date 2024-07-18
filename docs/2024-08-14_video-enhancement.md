@@ -121,7 +121,7 @@ I'd better start by lifting the following out of `extract-frames.py`, note her i
 
 // use absolute paths
 
-video_path = os.path.abspath('data/before/orig-vid-only.mp4')
+video_path = os.path.abspath('data/input/orig-vid-only.mp4')
 output_folder = os.path.abspath('data/frames')
 
     if not os.path.exists(output_folder):
@@ -459,7 +459,7 @@ python src/install-requirements.py pytorch-requirements.txt
 
 That did get things a bit further, but failed again.
 
-D'oh! Purge the cache, dude!
+**D'oh! Purge the cache, dude!**
 
 ```
 pip cache purge
@@ -478,4 +478,10 @@ That worked. Ok, I'd better :
 
 ```
 pip freeze > requirements.txt
+```
+
+Oops, it's not `ffmeg` but :
+
+```
+pip install ffmpeg-python
 ```

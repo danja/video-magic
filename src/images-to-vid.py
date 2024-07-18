@@ -13,7 +13,9 @@ os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
 def create_video_from_frames(input_folder, output_path, start_number=1, num_frames=400, fps=8):
     # Construct the input pattern for the frames
-    input_pattern = f"{input_folder}/frame_%04d.png"
+    input_pattern = f"{input_folder}/%08d.png"
+
+# was     input_pattern = f"{input_folder}/frame_%04d.png"
 
     # Create the ffmpeg input with the frame range and explicit input frame rate
     input_stream = (
