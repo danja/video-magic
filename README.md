@@ -1,18 +1,18 @@
 # Magic to Improve the Quality of a Video Recording
 
-_it seems like magic to me_
+_indistinguishable to me_
 
-**tl;dr** : glue code to run a couple of machine learning algorithms/models (see [Tools](#tools) and [File List](#file-list)).
+**tl;dr** : glue code to run a couple of machine learning algorithms/models (see [Tools](#tools) and [File List](#file-list))
 
-**Status 2024-08-18** : individual processes running (very slowly on a GPU-less computer) locally
+**Status 2024-08-18** : full process running locally on a snippet of the video (very slowly on a GPU-less computer), this README in-progress
 
-**Caveat** : my goal was to see what I could do with one specific recording without going to far down the rabbit hole. While I'm familiar with (conventional) audio techniques, video/image processing isn't something I've spent much time with, so most of this is from a perspective of learning as I go along, can no doubt be significantly improved on. But I think the overall workflow more or less makes sense.
+**Caveat** : my goal was to see what I could do with one specific recording without getting lost down the rabbit hole. While I'm familiar with (conventional) audio techniques and (some) ML, I haven't spent much time around video/image processing, so most of this is from a perspective of learning as I go along, ie. it can no doubt be significantly improved on. But I think the overall workflow makes sense as a starting point. And it kinda works.
 
-Parameters tweaks should make for easy improvement (trial & error time aside), out of ignorance I've simply used defaults. Different algorithms/models will be worth trying. If I were to take this further today, I'd try a combination of algorithms and interleaving the results (little bit of Python tweakage, give the frames odd/even numbered names or whatever).
+_Parameter tweaks should make for easy improvement (trial & error time aside), out of ignorance I've simply used defaults. Different algorithms/models will be worth trying. If I were to take this further today, I'd start with a combination of upscaling algorithms and interleaving the results prior to interpolation (little bit of Python tweakage, give the frames odd/even numbered names or whatever)._
 
 ## Prep
 
-I assume I used [yt-dlp](https://github.com/yt-dlp/yt-dlp) to download the original video _(for which I've lost the link)_. I typical do a two-part operation :
+I assume I used [yt-dlp](https://github.com/yt-dlp/yt-dlp) to download the original video _(for which I've lost the link)_. I typically do a two-part operation :
 
 - `yt-dlp -F <YouTube URL>` - lists available formats, with short ref numbers
 - `yt-dlp -f <ref number> <YouTube URL>` - downloads video in that format
@@ -31,25 +31,26 @@ Then I heard of [Eleven Labs' Voice Isolator](https://elevenlabs.io/voice-isolat
 
 ## Video Cleanup
 
+_you can make a silk purse out of a sow's ear if you have a model that has spent its formative weeks comparing them_
+
 ### Strategy
 
-_you can make a silk purse out of a sow's ear if you have a model that has spent it's whole life comparing them_
-
-After a little research, I settled on this processing sequence :
+After minimal research, I settled on this processing sequence :
 
 1. Extract individual frames as images from original video
 2. Upscale/improve individual frames
 3. Interpolate new frames
 4. Render interpolated frames into video
 
-For implementation, because typically ML=Python, it was the obvious choice of language.
+For implementation, because typically ML==Python, it was the obvious choice of language.
 
 This was bound to be processor-hungry and I don't have a usable GPU here, so I decided to :
 
 - code up each step individually as regular Python
-- test on a snippet of the video (400 frames, 50s)
+- test locally on a snippet of the video (400 frames, 50s)
 - join code together
 - convert into a notebook for HuggingFace and/or Colab
+- run at speed
 
 _At this point I brought in my colleagues ChatGPT4o, Cursor (via OpenAI API) and Claude 3.5 Sonnet. Henceforth plural personal pronouns may appear._
 
