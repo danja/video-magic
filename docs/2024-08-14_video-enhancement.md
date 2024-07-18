@@ -2,9 +2,10 @@
 
 _you can make a silk purse out of a sow's ear if you have a model that has spent it's whole life comparing them_
 
-1. extract frames from original vid
+1. Extract individual frames as images from original video
 2. Upscale/improve individual frames
-3. Interpolate new frames into better video
+3. Interpolate new frames
+4. Render interpolated frames into video
 
 ### First Pass
 
