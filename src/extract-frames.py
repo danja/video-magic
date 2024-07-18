@@ -1,7 +1,7 @@
 import ffmpeg
 import os
 
-video_path = 'data/before/orig-vid-only.mp4'
+video_path = 'data/input/orig-vid-only.mp4'
 output_folder = 'data/frames'
 
 

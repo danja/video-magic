@@ -190,16 +190,9 @@ Ok, so far so good.
 
 I now eat.
 
+---
 
-
-
-
-
-
-
-
-
-
+Next day. I upgraded Ubuntu mantic to noble, that broke the venv.
 
 
 
@@ -460,7 +453,13 @@ hashin -v -r requirements.txt torch==2.3.1
 
 Same error. But there is such a big dependency tree I didn't fancy doing it all manually. So we made a helper script to run pip on
 
+```
 python src/install-requirements.py pytorch-requirements.txt
+```
+
+That did get things a bit further, but failed again.
+
+D'oh! Purge the cache, dude!
 
 ```
 pip cache purge
@@ -471,4 +470,12 @@ pip install torch>=1.7
 
 That _appears_ to have run without incident (note to self: use `pip -v` in future).
 
+```
+pip install -v git+https://github.com/sberbank-ai/Real-ESRGAN.git
+```
+
+That worked. Ok, I'd better :
+
+```
 pip freeze > requirements.txt
+```
