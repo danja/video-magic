@@ -216,15 +216,9 @@ colab-convert /home/danny/foaf-archive-support/video-magic/src/main.py /home/dan
 
 UnboundLocalError: cannot access local variable 'main_metadata' where it is not associated with a value
 
-```
+fixed :
 
-
-
-
-
-
-
-
+https://github.com/danja/colab-convert
 
 ### Setup
 
@@ -372,7 +366,8 @@ flatpak-spawn --host cp /run/host/root/Videos/output-video.avi_640x480.mp4 ~/out
 sudo -E flatpak enter 177213 sh
 cp /root/Videos/output-video.avi_640x480.mp4 /home/danny/flatpak-exports/output-video.avi_640x480.mp4
 exit
-```
+
+````
 
 ### Venv broke after Ubuntu update manic -> noble
 
@@ -402,7 +397,7 @@ source bin/activate
 
  ls
 bin  include  lib  lib64  pyvenv.cfg
-```
+````
 
 Python had been updated in the upgrade so I copied everything except those new env dirs & file from the old version into the new.
 Then:

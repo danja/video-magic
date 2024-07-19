@@ -65,6 +65,8 @@ This was bound to be processor-hungry and I don't have a usable GPU here, so I d
 
 _At this point I brought in my colleagues ChatGPT4o, Cursor (using OpenAI API) and Claude 3.5 Sonnet. Henceforth plural personal pronouns may appear._
 
+### Tools Used
+
 1 & 4 were pretty straightforward with `python-ffmpeg`. We haven't looked closely at the decoding/encoding format & parameters, they may well be suboptimal. I did suggest 'non-lossy' to the team, I don't know if they listened.
 
 After a bit of hunting & trial trial trial & error error error, the following were chosen for 2 & 3 :
@@ -75,16 +77,14 @@ After a bit of hunting & trial trial trial & error error error, the following we
 The former had a tweakable example, the latter actually has a standalone binary release **which works!**
 
 - Other Techniques
-- File List
+
 - Background
 
-* [verbose, disorganised notes](docs/2024-08-14_video-enhancement.md)
+### File List
 
-### Strategy
-
-### Tools Used
-
-### Filelist
+- [verbose, disorganised notes 01](docs/2024-08-14_video-magic-notes-01.md)
+- [verbose, disorganised notes 02](docs/2024-08-19_video-magic-notes-02.md)
+- [todo](docs/todo.md)
 
 ## Background
 
