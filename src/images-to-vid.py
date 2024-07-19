@@ -15,8 +15,6 @@ def create_video_from_frames(input_folder, output_path, start_number=1, num_fram
     # Construct the input pattern for the frames
     input_pattern = f"{input_folder}/%08d.png"
 
-# was     input_pattern = f"{input_folder}/frame_%04d.png"
-
     # Create the ffmpeg input with the frame range and explicit input frame rate
     input_stream = (
         ffmpeg
