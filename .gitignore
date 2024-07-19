@@ -1,9 +1,24 @@
+####### Specific ########
+
+# Include the directories
+!data/audio/
+!data/frames/
+!data/input/
+!data/interpolated/
+!data/output/
+!data/upscaled/
+
+# Exclude everything inside the directories
+data/*/*
+
 .env
 data/
 weights/
 include/
 bin/
-lib64/
+
+
+####### Generic ########
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
