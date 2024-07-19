@@ -37,3 +37,19 @@ colab-convert /home/danny/foaf-archive-support/video-magic/src/main.py /home/dan
 `main.ipynb` looks promising. I now need to sort out the other Colab-specific bits.
 
 Restart session, hmm
+
+I think I'm nearly there
+
+Colab is running the interpolation on the video snippet
+
+https://colab.research.google.com/drive/1jXtJrBzbLPrSJCi5TCr4Zv3djJ1LorRu#scrollTo=deE-4WjvYD96
+
+I've saved the current notebook directly to github
+
+https://github.com/danja/video-magic/blob/main/src/video_magic.ipynb
+
+and pulled it local
+
+it looks easier to use Google drive for the input & output
+
+see todo.md
