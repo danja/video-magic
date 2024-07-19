@@ -9,16 +9,16 @@
 !data/output/
 !data/upscaled/
 
-!data/.gitkeep
-!data/audio/.gitkeep
-!data/frames/.gitkeep
-!data/input/.gitkeep
-!data/interpolated/.gitkeep
-!data/output/.gitkeep
-!data/upscaled/.gitkeep
+#!data/.gitkeep
+#!data/audio/.gitkeep
+#!data/frames/.gitkeep
+#!data/input/.gitkeep
+#!data/interpolated/.gitkeep
+#!data/output/.gitkeep
+#!data/upscaled/.gitkeep
 
 # Exclude everything inside the directories
-# data/*/*
+data/*/*
 
 .env
 weights/
