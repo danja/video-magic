@@ -1,12 +1,21 @@
 ####### Specific ########
 
 # Include the directories
+!data/
 !data/audio/
 !data/frames/
 !data/input/
 !data/interpolated/
 !data/output/
 !data/upscaled/
+
+!data/.gitkeep
+!data/audio/.gitkeep
+!data/frames/.gitkeep
+!data/input/.gitkeep
+!data/interpolated/.gitkeep
+!data/output/.gitkeep
+!data/upscaled/.gitkeep
 
 # Exclude everything inside the directories
 data/*/*
