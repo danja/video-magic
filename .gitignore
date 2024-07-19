@@ -18,10 +18,9 @@
 !data/upscaled/.gitkeep
 
 # Exclude everything inside the directories
-data/*/*
+# data/*/*
 
 .env
-data/
 weights/
 include/
 bin/
