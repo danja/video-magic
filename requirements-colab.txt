@@ -51,3 +51,4 @@ typing_extensions==4.12.2
 urllib3==2.2.2
 wheel==0.43.0
 jedi>=0.16
+numpy==1.23.5
