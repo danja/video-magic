@@ -202,23 +202,9 @@ Another day.
 
 `main.py` is successfully doing the end-to-end process. Now to get it up on Colab.
 
-[colab-convert](https://github.com/MSFTserver/colab-convert) looks handy.
+Moving to a new file of scrappy notes...
 
-```
-
-pip install colab-convert
-
-colab-convert src/main.py src/main.ipynb
-
-// colab-convert==2.0.5
-
-colab-convert /home/danny/foaf-archive-support/video-magic/src/main.py /home/danny/foaf-archive-support/video-magic/src/main.ipynb
-
-UnboundLocalError: cannot access local variable 'main_metadata' where it is not associated with a value
-
-fixed :
-
-https://github.com/danja/colab-convert
+----
 
 ### Setup
 
@@ -367,7 +353,7 @@ sudo -E flatpak enter 177213 sh
 cp /root/Videos/output-video.avi_640x480.mp4 /home/danny/flatpak-exports/output-video.avi_640x480.mp4
 exit
 
-````
+```
 
 ### Venv broke after Ubuntu update manic -> noble
 
@@ -397,7 +383,7 @@ source bin/activate
 
  ls
 bin  include  lib  lib64  pyvenv.cfg
-````
+```
 
 Python had been updated in the upgrade so I copied everything except those new env dirs & file from the old version into the new.
 Then:
