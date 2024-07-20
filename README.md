@@ -4,7 +4,9 @@ _indistinguishable to me_
 
 **tl;dr** : glue code to run a couple of machine learning algorithms/models on the visuals (see [Tools](#tools) and [File List](#file-list))
 
-Audio cleaning isn't included in the code, a pay-for service was used for now. But that may follow, if and when it's needed.
+Audio cleaning isn't included in the code (see below). But that may follow, if and when it's needed.
+
+[Live Colab Notebook](https://colab.research.google.com/drive/1jXtJrBzbLPrSJCi5TCr4Zv3djJ1LorRu?usp=sharing)
 
 **Status 2024-08-20** : full process running locally and on Colab on a snippet of the video (very slowly on a GPU-less computer), this README in-progress
 
