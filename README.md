@@ -6,7 +6,7 @@ _indistinguishable to me_
 
 Audio cleaning isn't included in the code, a pay-for service was used for now. But that may follow, if and when it's needed.
 
-**Status 2024-08-18** : full process running locally on a snippet of the video (very slowly on a GPU-less computer), this README in-progress
+**Status 2024-08-18** : full process running locally and on Colab on a snippet of the video (very slowly on a GPU-less computer), this README in-progress
 
 **Caveat** : my goal was to see what I could do with one specific recording without getting lost down the rabbit hole. In agile-speak, a spike. While I'm familiar with (conventional) audio techniques and (some) ML, I haven't spent much time around video/image processing, so most of this is from a perspective of learning as I go along, ie. it can no doubt be significantly improved on. But I think the overall workflow makes sense as a starting point. And, as far as it goes, it works.
 
@@ -82,8 +82,9 @@ The former had a tweakable example, the latter actually has a standalone binary 
 
 ### File List
 
-- [verbose, disorganised notes 01](docs/2024-08-14_video-magic-notes-01.md)
-- [verbose, disorganised notes 02](docs/2024-08-19_video-magic-notes-02.md)
+- [verbose, disorganised notes 01](docs/2024-08-14_notes-01.md)
+- [verbose, disorganised notes 02](docs/2024-08-19_notes-02.md)
+- [verbose, disorganised notes 03](docs/2024-08-20_notes-03.md)
 - [todo](docs/todo.md)
 
 ## Background

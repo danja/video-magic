@@ -1,5 +1,7 @@
 ####### Specific ########
 
+bits
+
 # Include the directories
 !data/
 !data/audio/

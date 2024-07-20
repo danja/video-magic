@@ -1,0 +1,47 @@
+# Scrappy notes 2024-08-20
+
+I got a Colab notebook to work on `src/video-magic_colab.ipynb`, with lots of manual intervention. It looks like it used all my free tier GPU supply before finishing, but bloody useless Google don't give any useful availability/limit/usage information (beyond saying "things might run for 12 hours").
+
+As I've got this far on Colab I might as well continue and tidy up a bit. It might not be runnable without a pay-for tier (and I'm skint today), but a tidier version will be a more portable version.
+
+First job is to use my Google Drive for all data storage. I just checked, there are libs to use it from HuggingFace spaces.
+
+It's easy to mount in Colab, and having (intermediate) results persisted outside of Colab seems must-have.
+
+---
+
+My Google Drive, under `My Drive` in drive browser app,
+
+[My Drive/colab-data](https://drive.google.com/drive/folders/12gglcq7ha9x3a_Y-LDUFyLUx483R41oo?usp=sharing) shared.
+
+Dir tree created -
+
+`colab-data/video-magic/`, under that :
+
+```
+data
+├── audio
+│   ├── foaftalk-audio-orig-isolated.mp3
+│   └── foaftalk-audio-orig.m4a
+├── frames
+├── input
+│   ├── orig-vid-only.mp4
+│   └── snippet.mp4
+├── interpolated
+├── output
+└── upscaled
+```
+
+`MyDrive` mounted at `/content/drive` so `data` tree above is seen as :
+
+```
+/content/drive/MyDrive/colab-data/video-magic/data/
+```
+
+DO AUDIO ON BAD VID
+
+### Misc
+
+potential other interpolation :
+
+[Depth-Aware Video Frame Interpolation](https://github.com/baowenbo/DAIN)

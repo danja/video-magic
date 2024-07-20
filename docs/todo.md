@@ -9,6 +9,12 @@ nearly there
 
 it looks easier to use Google drive for the input & output, but I need to figure out paths etc
 
+oops, forgot this one:
+
+- [ ] make sure it's using GPU
+
+---
+
 - [ ] use Google Drive for the input vid
 - [ ] upload full-length
 - [ ] run
