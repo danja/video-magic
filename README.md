@@ -117,6 +117,22 @@ The former had a tweakable example, the latter actually has a standalone binary 
 
 ### File List
 
+These things are mighty flawed, only barely proof of concept. Way below MVP.
+
+After trying things on Colab I made a load of edits that didn't come back here. Well, they are in the [Colab notebook file](src/video-magic_colab.ipynb). Note the there's a different `requirements-coab.txt` there, Colab lines things up in a way may not coincide with a virgin environment.
+
+There are paths defined inside everywhere that only make sense on my own desktop computer.
+
+- `extract-frames.py` - turns a video file into a bunch of images
+- `upscale-single.py` - to try the upscaling on a single image
+- `upscale-many.py` - for lots of frames. The corresponding part in the notebook had a bit more effort
+- `run-rife.sh` - doing the rife thing from a shell script, probabably worth noting
+- `run-rife.py` - runs the same thing as the shell script, no doubt a very inefficient way of doing things
+- `images-to-vid.py`
+- `main.py` - all the above glued together. Works, but not bigly. Paths etc.
+- `video-magic_colab.ipynb`- best version to date. To run on Google Colab.
+- `install-requirements.py` - an attempt to get out of dependency hell. Took me a long time to think of `pip cache purge`. This might be useful one day.
+
 ## Background
 
 A while ago [danbri](https://x.com/danbri) (/[danbri.org](https://danbri.org/)) asked me to see what I could do with an video of a presentation he & Edd _(TODO current link?)_ did about the [FOAF Project](https://en.wikipedia.org/wiki/FOAF) years ago. The a/v quality was terrible. I was reasonably confident I'd be able to improve the audio using conventional techniques, but this turned out to be far less successful than I thought. On the video side, I didn't have a clue at first.
