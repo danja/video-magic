@@ -16,7 +16,7 @@ _Parameter tweaks should make for easy improvement (trial & error time aside), o
 
 ## Installation
 
-_I need to double-check this_
+_need to double-check this_
 
 With Python 3 installed :
 
