@@ -6,7 +6,8 @@ _indistinguishable to me_
 
 Audio cleaning isn't included in the code (see below). But that may follow, if and when it's needed.
 
-[Live Colab Notebook](https://colab.research.google.com/drive/1jXtJrBzbLPrSJCi5TCr4Zv3djJ1LorRu?usp=sharing)
+- Video overview : [Video Magic : Improving the quality of videos with AI](https://www.youtube.com/watch?v=KA59JZC_NZU)
+- [Live Colab Notebook](https://colab.research.google.com/drive/1jXtJrBzbLPrSJCi5TCr4Zv3djJ1LorRu?usp=sharing)
 
 **Status 2024-08-20** : full process running locally and on Colab on a snippet of the video (very slowly on a GPU-less computer), this README in-progress
 
